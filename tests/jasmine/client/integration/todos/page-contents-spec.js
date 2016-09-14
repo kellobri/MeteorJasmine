@@ -12,4 +12,11 @@ describe ("the todo page : page contents", function() {
     expect($('ul').length).toEqual(1);
   });
 
+  it ("should include a field for entering a new task "
+      + "with an appropriate placeholder", function() {
+    var input = $('.new-task input');
+    expect(input.length).toEqual(1);
+    expect(input.attr('placeholder')).toEqual('Type to add new tasks');
+  });
+
 });

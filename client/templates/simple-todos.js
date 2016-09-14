@@ -4,6 +4,6 @@ Template.body.onCreated(function() {
 
 Template.body.helpers({
   tasks: function() {
-    return Tasks.find();
+    return Tasks.find({}, {sort: { createdAt: -1 }});
   }
 });
