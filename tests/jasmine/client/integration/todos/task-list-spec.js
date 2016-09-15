@@ -17,9 +17,7 @@ describe ("the todo page : task list", function() {
 
   it ("should contain the current list of tasks sorted by creation date descending", function(done) {
     Meteor.setTimeout(function() {
-      var tasks = $("li").map(function() {
-        return $(this).text();
-      }).get();
+      var tasks = TodosSpecHelper.retrieveTasksFromUI();
 
       expect(tasks.length).toEqual(3);
       expect(tasks[0]).toEqual('This is task 3');

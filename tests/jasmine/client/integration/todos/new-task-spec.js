@@ -10,9 +10,7 @@ describe ("the todo page : new task field", function() {
       addTaskViaUI('My new task');
 
       //check the updated task list
-      var tasks = $("li").map(function() {
-        return $(this).text();
-      }).get();
+      var tasks = TodosSpecHelper.retrieveTasksFromUI();
       expect(tasks.length).toEqual(1);
       expect(tasks[0]).toEqual('My new task');
 
