@@ -21,4 +21,10 @@ Template.body.events({
     //Clear form
     event.target.text.value = "";
   }
-})
+});
+
+Template.task.events({
+  "click .delete": function () {
+    Meteor.call("deleteTask", this._id);
+  }
+});
