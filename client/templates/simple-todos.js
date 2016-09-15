@@ -7,3 +7,9 @@ Template.body.helpers({
     return Tasks.find({}, {sort: { createdAt: -1 }});
   }
 });
+
+Template.body.events({
+  "submit .new-task": function (event) {
+    event.preventDefault();
+  }
+})
