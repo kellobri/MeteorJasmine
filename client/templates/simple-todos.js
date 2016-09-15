@@ -5,6 +5,9 @@ Template.body.onCreated(function() {
 Template.body.helpers({
   tasks: function() {
     return Tasks.find({}, {sort: { createdAt: -1 }});
+  },
+  incompleteCount: function() {
+    return Tasks.find({completed: {$ne: true}}).count();
   }
 });
 
