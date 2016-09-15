@@ -21,7 +21,7 @@
 </body>
 
 <template name="task">
-  <li>
+  <li class="{{#if completed}}checked{{/if}}">
     <button class="delete">&times;</button>
     <input type="checkbox" checked="{{completed}}" class="toggle-checked" />
     <span class="text">{{text}}</span>

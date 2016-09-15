@@ -24,6 +24,9 @@ Template.body.events({
 });
 
 Template.task.events({
+  "click .toggle-checked": function() {
+    Meteor.call("setCompleted", this._id, ! this.completed);
+  },
   "click .delete": function () {
     Meteor.call("deleteTask", this._id);
   }
