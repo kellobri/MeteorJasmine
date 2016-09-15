@@ -4,7 +4,14 @@ Template.body.onCreated(function() {
 
 Template.body.helpers({
   tasks: function() {
-    return Tasks.find({}, {sort: { createdAt: -1 }});
+    if (Session.get("hideCompleted")) {
+      return Tasks.find({completed: {$ne: true}}, {sort: {createdAt: -1}})
+    } else {
+      return Tasks.find({}, {sort: { createdAt: -1 }});
+    }
+  },
+  hideCompleted: function() {
+    return Session.get("hideCompleted");
   },
   incompleteCount: function() {
     return Tasks.find({completed: {$ne: true}}).count();
@@ -23,6 +30,9 @@ Template.body.events({
 
     //Clear form
     event.target.text.value = "";
+  },
+  "change .hide-completed input": function (event) {
+    Session.set("hideCompleted", event.target.checked);
   }
 });
 
