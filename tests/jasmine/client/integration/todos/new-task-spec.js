@@ -17,7 +17,7 @@ describe ("the todo page : new task field", function() {
       expect(tasks[0]).toEqual('My new task');
 
       //also check the DB
-      var task = Task.findOne({text: 'My new task'});
+      var task = Tasks.findOne({text: 'My new task'});
       expect(task).not.toBe(undefined);
       expect(task.text).toEqual('My new task');
       done();
